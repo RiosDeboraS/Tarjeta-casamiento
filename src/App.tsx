@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
-import { Calendar, MapPin, Clock, Heart, Sparkles, MessageCircle, Wallet } from "lucide-react";
+import React, { useState, useEffect} from "react";
+
+import { motion, AnimatePresence } from "framer-motion";
+import { Calendar, MapPin, Clock, Sparkles, MessageCircle, Wallet } from "lucide-react";
 
 // ==========================
 // 🍃 DarkPetalsLayer (Efecto de hojas)
@@ -186,97 +187,123 @@ export default function App() {
 
           <GoldenDivider />
 
-          {/* PRECIOS - Letras Fuertes y Visibles */}
-          <section className="mb-28 text-center px-4">
-            <div className="inline-block border border-[#BFA17E]/10 bg-[#161A13]/40 backdrop-blur-md p-10 md:p-16 w-full max-w-xl rounded-2xl shadow-xl">
-              <Wallet className="w-6 h-6 mx-auto mb-10 text-[#BFA17E] opacity-40" />
-              <h3 className="text-[11px] md:text-xs uppercase tracking-[0.5em] text-[#BFA17E] mb-16 font-bold">Valor de la Tarjeta</h3>
-              
-              <div className="space-y-10 max-w-xs mx-auto">
-                <div className="flex justify-between items-end border-b border-[#BFA17E]/10 pb-5">
-                  <span className="text-xs md:text-sm uppercase tracking-[0.2em] opacity-80 font-bold">Adultos</span>
-                  <span className="text-3xl font-serif font-light text-[#FDF7E3]">$90.000</span>
-                </div>
-                <div className="flex justify-between items-end border-b border-[#BFA17E]/10 pb-5">
-                  <span className="text-xs md:text-sm uppercase tracking-[0.2em] opacity-80 font-bold">Niños <span className="text-[10px] block opacity-50 italic mt-1 font-light">(4 a 13 años)</span></span>
-                  <span className="text-3xl font-serif font-light text-[#FDF7E3]">$70.000</span>
-                </div>
-              </div>
-            </div>
-          </section>
+         {/* PRECIOS - Corregido y Centrado */}
+<section className="mb-28 text-center px-4 flex justify-center">
+  <div className="border border-[#BFA17E]/10 bg-[#161A13]/40 backdrop-blur-md p-10 md:p-16 w-full max-w-2xl rounded-2xl shadow-xl">
+    <Wallet className="w-6 h-6 mx-auto mb-10 text-[#BFA17E] opacity-40" />
+    <h3 className="text-[11px] md:text-xs uppercase tracking-[0.5em] text-[#BFA17E] mb-16 font-bold">
+      Valor de la Tarjeta
+    </h3>
 
-          <GoldenDivider />
-          
+    <div className="space-y-10 max-w-md mx-auto">
+      <div className="flex justify-between items-end border-b border-[#BFA17E]/10 pb-5">
+        <span className="text-xs md:text-sm uppercase tracking-[0.2em] opacity-80 font-bold text-left">
+          Adultos
+        </span>
+        <span className="text-3xl font-serif font-light text-[#FDF7E3] leading-none">
+          $90.000
+        </span>
+      </div>
+      
+      <div className="flex justify-between items-end border-b border-[#BFA17E]/10 pb-5">
+        <div className="text-left">
+          <span className="text-xs md:text-sm uppercase tracking-[0.2em] opacity-80 font-bold block">
+            Niños
+          </span>
+          <span className="text-[10px] opacity-50 italic font-light block mt-1">
+            (4 a 11 años inclusive)
+          </span>
+        </div>
+        <span className="text-3xl font-serif font-light text-[#FDF7E3] leading-none">
+          $70.000
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
 
-         {/* SECCIÓN: MENÚ DEL SERVICIO */}
-          <section className="mb-28 text-center px-4">
-            
-              <h3 className="text-6xl md:text-7xl font-script text-[#FDF7E3] mb-12 drop-shadow-[0_2px_10px_rgba(191,161,126,0.4)]">
-                Menú de Boda
-              </h3>
-              
-              <div className="max-w-2xl mx-auto space-y-12">
-                
-                {/* Paso 1: Entrada */}
-                <div className="group">
-                  <span className="text-[10px] uppercase tracking-[0.5em] text-[#BFA17E] font-bold block mb-2 opacity-60">I. Recepción</span>
-                  <h4 className="text-xl md:text-2xl font-serif text-[#FDF7E3] tracking-widest uppercase mb-3">Entrada</h4>
-                  <p className="text-xs md:text-sm text-[#FDF7E3]/70 font-light italic leading-relaxed max-w-xs mx-auto">
-                    Selección de bocados gourmet y sabores de campo.
-                  </p>
-                </div>
+<GoldenDivider />
 
-                {/* Paso 2: Barra */}
-                <div className="group">
-                  <div className="h-[1px] w-8 bg-[#BFA17E]/20 mx-auto mb-8" />
-                  <span className="text-[10px] uppercase tracking-[0.5em] text-[#BFA17E] font-bold block mb-2 opacity-60">II. Brindis</span>
-                  <h4 className="text-xl md:text-2xl font-serif text-[#FDF7E3] tracking-widest uppercase mb-3">Barra de Tragos Libre</h4>
-                  <p className="text-xs md:text-sm text-[#FDF7E3]/70 font-light italic leading-relaxed">
-                    Mixología clásica y de autor durante toda la noche.
-                  </p>
-                </div>
+{/* SECCIÓN: MENÚ DEL SERVICIO - Limpieza de etiquetas y espaciado */}
+<section className="mb-28 text-center px-4">
+  <h3 className="text-6xl md:text-7xl font-script text-[#FDF7E3] mb-12 drop-shadow-[0_2px_10px_rgba(191,161,126,0.4)]">
+    Menú de Boda
+  </h3>
 
-                {/* Paso 3: Plato Principal */}
-                <div className="group border-y border-[#BFA17E]/10 py-10 my-10 bg-[#0A0C08]/10 backdrop-blur-sm">
-                  <span className="text-[10px] uppercase tracking-[0.5em] text-[#BFA17E] font-bold block mb-2 opacity-60">III. El Banquete</span>
-                  <h4 className="text-xl md:text-2xl font-serif text-[#FDF7E3] tracking-widest uppercase mb-3">Plato Principal</h4>
-                  <p className="text-xs md:text-sm text-[#FDF7E3]/70 font-light italic leading-relaxed">
-                    Nuestra especialidad de la casa, servida con guarniciones estacionales.
-                  </p>
-                </div>
+  <div className="max-w-2xl mx-auto space-y-12">
+    
+    {/* I. Recepción */}
+    <div className="group">
+      <span className="text-[10px] uppercase tracking-[0.5em] text-[#BFA17E] font-bold block mb-2 opacity-60">I. Recepción</span>
+      <h4 className="text-xl md:text-2xl font-serif text-[#FDF7E3] tracking-widest uppercase mb-3">Entrada</h4>
+      <p className="text-xs md:text-sm text-[#FDF7E3]/70 font-light italic leading-relaxed">
+        Tabla de fiambres, variedad de empanadas y sandwiches de miga.
+      </p>
+    </div>
 
-                {/* Paso 4: Postre */}
-                <div className="group">
-                  <span className="text-[10px] uppercase tracking-[0.5em] text-[#BFA17E] font-bold block mb-2 opacity-60">IV. Dulce Final</span>
-                  <h4 className="text-xl md:text-2xl font-serif text-[#FDF7E3] tracking-widest uppercase mb-3">Postre</h4>
-                  <p className="text-xs md:text-sm text-[#FDF7E3]/70 font-light italic leading-relaxed">
-                    Delicias artesanales para endulzar el alma.
-                  </p>
-                  <div className="h-[1px] w-8 bg-[#BFA17E]/20 mx-auto mt-8" />
-                </div>
+    {/* II. Brindis */}
+    <div className="group">
+      <div className="h-[1px] w-8 bg-[#BFA17E]/20 mx-auto mb-8" />
+      <span className="text-[10px] uppercase tracking-[0.5em] text-[#BFA17E] font-bold block mb-2 opacity-60">II. Brindis</span>
+      <h4 className="text-xl md:text-2xl font-serif text-[#FDF7E3] tracking-widest uppercase mb-3">Barra de Tragos Libre</h4>
+      
+      <div className="text-xs md:text-sm text-[#FDF7E3]/70 font-light italic leading-relaxed space-y-4">
+        <p>
+          Vino Tinto Malbec (Alma Mora/Trumpeter) - Vino blanco dulce (Cosecha tardía/Dilema) - Cerveza Heineken - 
+          Refrescos y Aguas.
+        </p>
+        <p className="text-[#BFA17E] not-italic font-bold tracking-widest uppercase text-[10px]">
+          Barra Libre
+        </p>
+        <p>
+          Fernet Branca con Coca - Gancia con Sprite - Campari con naranja - 
+          Gintonic de frutos rojos y lima - Daikiris de frutilla y durazno 
+          - Mojito - Cuba Libre.
+        </p>
+      </div>
+    </div>
 
-                {/* Paso 5: Trasnoche */}
-                <div className="group pt-4">
-                  <span className="text-[10px] uppercase tracking-[0.5em] text-[#BFA17E] font-bold block mb-2 opacity-60">V. Energía</span>
-                  <h4 className="text-xl md:text-2xl font-serif text-[#FDF7E3] tracking-widest uppercase mb-3">Plato de Trasnoche</h4>
-                  <p className="text-xs md:text-sm text-[#FDF7E3]/70 font-light italic leading-relaxed">
-                    Para recargar fuerzas y seguir celebrando hasta el amanecer.
-                  </p>
-                </div>
+    {/* III. Plato Principal */}
+    <div className="group border-y border-[#BFA17E]/10 py-10 my-10 bg-[#0A0C08]/10 backdrop-blur-sm">
+      <span className="text-[10px] uppercase tracking-[0.5em] text-[#BFA17E] font-bold block mb-2 opacity-60">III. El Banquete</span>
+      <h4 className="text-xl md:text-2xl font-serif text-[#FDF7E3] tracking-widest uppercase mb-3">Plato Principal</h4>
+      <p className="text-xs md:text-sm text-[#FDF7E3]/70 font-light italic leading-relaxed">
+        Vacío al horno con papas a la crema Verdeo.
+      </p>
+    </div>
 
-                {/* AVISO DE RESTRICCIONES */}
-                <div className="mt-16 pt-8 border-t border-[#BFA17E]/5">
-                  <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-[#BFA17E] font-bold opacity-70">
-                    Importante
-                  </p>
-                  <p className="text-[10px] md:text-xs text-[#FDF7E3]/50 italic mt-3 max-w-sm mx-auto leading-relaxed">
-                    Si tienes alguna restricción alimentaria (celíaco, vegano o alergias), por favor infórmanos al confirmar tu asistencia.
-                  </p>
-                </div>
+    {/* IV. Postre */}
+    <div className="group">
+      <span className="text-[10px] uppercase tracking-[0.5em] text-[#BFA17E] font-bold block mb-2 opacity-60">IV. Dulce Final</span>
+      <h4 className="text-xl md:text-2xl font-serif text-[#FDF7E3] tracking-widest uppercase mb-3">Postre</h4>
+      <p className="text-xs md:text-sm text-[#FDF7E3]/70 font-light italic leading-relaxed">
+        Delicias artesanales: Shots de Cheesecake, Tiramisú y Chocotorta. <br/>
+        Bocaditos Selva Negra y Chajá. Tarteletitas Lemon Pie y Frutal.
+      </p>
+      <div className="h-[1px] w-8 bg-[#BFA17E]/20 mx-auto mt-8" />
+    </div>
 
-              </div>
-           
-          </section>
+    {/* V. Trasnoche */}
+    <div className="group pt-4">
+      <span className="text-[10px] uppercase tracking-[0.5em] text-[#BFA17E] font-bold block mb-2 opacity-60">V. Energía</span>
+      <h4 className="text-xl md:text-2xl font-serif text-[#FDF7E3] tracking-widest uppercase mb-3">Plato de Trasnoche</h4>
+      <p className="text-xs md:text-sm text-[#FDF7E3]/70 font-light italic leading-relaxed">
+        Para recargar fuerzas y seguir celebrando hasta el amanecer: <br/>
+        Sandwiches de bondiola.
+      </p>
+    </div>
+
+    {/* IMPORTANTE */}
+    <div className="mt-16 pt-8 border-t border-[#BFA17E]/5">
+      <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-[#BFA17E] font-bold opacity-70">
+        Importante
+      </p>
+      <p className="text-[10px] md:text-xs text-[#FDF7E3]/50 italic mt-3 max-w-md mx-auto leading-relaxed">
+        Si tienes alguna restricción alimentaria (celíaco, vegano o alergias), por favor infórmanos al confirmar tu asistencia.
+      </p>
+    </div>
+  </div>
+</section>
 
           
 
@@ -300,33 +327,83 @@ export default function App() {
 
           <GoldenDivider />
 
-          {/* UBICACIÓN & WHATSAPP - Letras Fuertes */}
-          <section className="grid md:grid-cols-2 gap-8 text-center px-4">
-            <div className="p-10 border border-[#BFA17E]/10 bg-[#0A0C08]/20 backdrop-blur-sm rounded-xl">
-              <MapPin className="w-5 h-5 mx-auto mb-6 text-[#BFA17E] opacity-40" />
-              <h4 className="text-[10px] uppercase tracking-[0.3em] mb-4 text-[#BFA17E] font-bold opacity-80">Ubicación</h4>
-              <p className="text-[10px] md:text-xs leading-relaxed opacity-90 uppercase tracking-widest font-bold">
-                Salón De Campo<br />Ruta 123, Diamante
-              </p>
-            </div>
-            <div className="p-10 border border-[#BFA17E]/10 bg-[#0A0C08]/20 backdrop-blur-sm rounded-xl flex flex-col justify-center transform hover:scale-[1.02] transition-transform">
-              <MessageCircle className="w-5 h-5 mx-auto mb-6 text-[#BFA17E] opacity-40" />
-              <h4 className="text-[10px] uppercase tracking-[0.3em] mb-6 text-[#BFA17E] font-bold opacity-80">Asistencia</h4>
-              <a 
-                href="https://wa.me/5491123456789?text=Hola! Confirmo mi asistencia para la boda de Kevin y Debora."
-                target="_blank"
-                className="text-[9px] md:text-[10px] uppercase tracking-[0.4em] py-4 border border-[#BFA17E]/20 hover:bg-[#BFA17E]/10 transition-colors font-bold text-[#FDF7E3]"
-              >
-                Confirmar por WhatsApp
-              </a>
-            </div>
-          </section>
+          {/* UBICACIÓN & WHATSAPP - Diseño Simétrico y Elevado */}
+<section className="grid md:grid-cols-2 gap-6 md:gap-8 text-center px-4 max-w-5xl mx-auto mb-28">
+  
+  {/* Tarjeta de Ubicación */}
+  <div className="group p-10 border border-[#BFA17E]/10 bg-[#161A13]/30 backdrop-blur-md rounded-2xl flex flex-col items-center justify-between transition-all duration-500 hover:border-[#BFA17E]/30">
+    <div>
+      <MapPin className="w-6 h-6 mx-auto mb-6 text-[#BFA17E] opacity-50 group-hover:scale-110 transition-transform" />
+      <h4 className="text-[10px] md:text-xs uppercase tracking-[0.5em] mb-6 text-[#BFA17E] font-bold">
+        Ubicación
+      </h4>
+      <p className="text-xs md:text-sm leading-relaxed text-[#FDF7E3] opacity-80 uppercase tracking-[0.2em] font-light mb-8">
+        Salón De Campo<br />
+        <span className="text-[10px] opacity-60">Diamante, Entre Ríos</span>
+      </p>
+    </div>
+    
+    <a 
+      href="https://www.google.com/maps/dir//Sal%C3%B3n+de+Eventos+%22De+Campo%22,+W9CM%2BV9,+Diamante,+Entre+R%C3%ADos/@-32.0693124,-60.637184,14z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x95b5cd006e53f0d9:0x82769ce655794512!2m2!1d-60.616563!2d-32.077816?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D" 
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block w-full max-w-[220px] text-[9px] uppercase tracking-[0.4em] py-4 px-6 border border-[#BFA17E]/20 bg-[#BFA17E]/5 hover:bg-[#BFA17E]/20 transition-all font-bold text-[#FDF7E3] rounded-sm"
+    >
+      Ver en Mapa
+    </a>
+  </div>
+
+  {/* Tarjeta de WhatsApp */}
+  <div className="group p-10 border border-[#BFA17E]/10 bg-[#161A13]/30 backdrop-blur-md rounded-2xl flex flex-col items-center justify-between transition-all duration-500 hover:border-[#BFA17E]/30">
+    <div>
+      <MessageCircle className="w-6 h-6 mx-auto mb-6 text-[#BFA17E] opacity-50 group-hover:scale-110 transition-transform" />
+      <h4 className="text-[10px] md:text-xs uppercase tracking-[0.5em] mb-6 text-[#BFA17E] font-bold">
+        Asistencia
+      </h4>
+      <p className="text-xs md:text-sm leading-relaxed text-[#FDF7E3] opacity-80 uppercase tracking-[0.2em] font-light mb-8">
+        Por favor confirmar<br />
+        <span className="text-[10px] opacity-60">antes del 10 de Julio</span>
+      </p>
+    </div>
+
+    <a 
+      href="https://wa.me/5493434620534?text=Hola!%20Confirmo%20mi%20asistencia%20para%20la%20boda%20de%20Kevin%20y%20Debora."
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block w-full max-w-[220px] text-[9px] uppercase tracking-[0.4em] py-4 px-6 border border-[#BFA17E]/20 bg-[#BFA17E]/5 hover:bg-[#BFA17E]/20 transition-all font-bold text-[#FDF7E3] rounded-sm shadow-[0_0_15px_rgba(191,161,126,0.05)]"
+    >
+      Confirmar por WhatsApp
+    </a>
+  </div>
+
+</section>
 
         </main>
 
-        <footer className="pb-20 text-center opacity-30 text-[20px] tracking-[0.8em] uppercase text-[#BFA17E]">
-          K & D . MMXXVI
-        </footer>
+       <footer className="pb-16 pt-12 text-center flex flex-col items-center">
+  {/* Siglas de la Boda - Ligeramente más pequeñas */}
+  <div className="opacity-30 text-[14px] md:text-[16px] tracking-[0.8em] uppercase text-[#BFA17E] font-serif mb-10">
+    K & D . MMXXVI
+  </div>
+
+  {/* Tu Firma - Estilo Micro-minimal */}
+  <div className="flex flex-col items-center opacity-40 hover:opacity-70 transition-opacity duration-500">
+    <div className="h-[0.5px] w-6 bg-[#BFA17E]/30 mb-4" />
+    <a 
+      href="https://github.com/tu-usuario" // Puedes cambiar el link
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="text-center"
+    >
+      <p className="text-[8px] tracking-[0.3em] uppercase text-[#FDF7E3] font-light">
+        Dev. Rios Debora Sabrina
+      </p>
+      <span className="text-[7px] tracking-[0.2em] uppercase text-[#BFA17E]/60 mt-0.5 block">
+        Software Developer
+      </span>
+    </a>
+  </div>
+</footer>
       </div>
     </IntroTrees>
   );
