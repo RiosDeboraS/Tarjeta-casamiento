@@ -314,7 +314,7 @@ export default function App() {
           
             <div className="relative z-10">
               <img 
-                src="src/public/img/Gemini_Generated_Image_gupdhfgupdhfgupd.svg" 
+                src="/public/img/Gemini_Generated_Image_gupdhfgupdhfgupd.svg" 
                 className="w-full max-w-xl mx-auto opacity-100 transition-all duration-1000 transform group-hover:scale-[1.03]" 
                 style={{
                     // Esto aplica un tinte dorado y resplandor al SVG
